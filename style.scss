@@ -1,0 +1,63 @@
+@import 'vars';
+@import 'utilities';
+@import 'buttons';
+
+
+%disp {
+    display: flex;
+    align-items: center;
+}
+
+
+a{
+    color: text-color($primary-color);
+    text-decoration: none;
+    //&:hover{color: yellow;}
+    //&:link{color: black;}
+    //&:active{color: brown;}
+    //&:visited{color: cadetblue;}
+}
+
+body{
+    background-color: $body-color;
+    font-family: $body-font;
+    line-height: 1.6;
+}
+
+.showcase{
+
+    //background-color: $primary-color;
+    //color: text-color($primary-color);
+    @include background-color($primary-color);
+    height: 600px;
+    padding: 15px 25px;
+
+    nav{
+        @extend %disp;
+        justify-content: space-between;
+
+        ul{
+            display: flex;
+            list-style-type: none;
+            li{
+                padding: 15px;
+            }
+        }
+        a{
+            &:hover{color: $links-color-hover;}
+        }
+    }
+    // Showcase-content
+    &-content{
+        height: 100%;
+        @extend %disp;
+        justify-content: center;
+        padding: 15px;
+
+        img{
+            width: 50%;
+        }
+    }
+}
+
+

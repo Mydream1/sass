@@ -1,0 +1,50 @@
+//variables
+// ----- color
+$primary-color: rgb(88, 21, 175);
+$secondary-color: #ffa600;
+$heading-color: #fff;
+$links-color: $heading-color;
+$links-color-hover: yellow;
+$sub-heading-color: #f4f4f4;
+$body-color: #f4f4f4;
+
+// ----- Fonts
+$body-font: Helvetica, sans-serif;
+
+// set text color based on background
+@function text-color($color){
+    @if(lightness($color) > 70){
+        @return #333;
+    }
+    @else{
+        @return #fff;
+    }
+}
+
+@function bg-color($color){
+    @if (lightness($color) > 50) {
+        @return lighten($color, 10%);
+    }
+    @else{
+        @return darken($color, 10%);
+    }
+}
+
+// set bg and text based on primary color {Mixing}
+
+@mixin background-color($color) {
+    background-color: $color;
+    color: text-color($color);
+}
+
+// For Loop {@each} for many items [1, 4, 5, 6]
+
+$list: (1,2,3,4,5);
+
+@each $var in $list {
+    //.my-1{}
+    .my-#{$var}{
+        margin: #{$var*10}px 0;
+    }
+    
+}
